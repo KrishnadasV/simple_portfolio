@@ -5,6 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Animations from "../../utilities/Animations";
 import ScrollService from "../../utilities/ScrollService";
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
+import "./Testimonial.css";
 
 export default function Testimonial(props) {
   let fadeInScreenHandler = (screen) => {
