@@ -5,6 +5,7 @@ import ScrollService from "../../utilities/ScrollService";
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import Typical from "react-typical";
 import { useState } from "react";
+import "./ContactMe.css";
 
 export default function ContactMe(props) {
   let fadeInScreenHandler = (screen) => {
@@ -65,10 +66,10 @@ export default function ContactMe(props) {
             <input type="text" onChange={handleName} value={name} />
 
             <label htmlFor="email">Email</label>
-            <input type="email" onChange={handleEmail} value={email}  />
+            <input type="email" onChange={handleEmail} value={email} />
 
             <label htmlFor="name">Message</label>
-            <textarea type="text" onChange={handleMessage} value={message}  />
+            <textarea type="text" onChange={handleMessage} value={message} />
 
             <div className="sned-btn">
               <button type="submit">
