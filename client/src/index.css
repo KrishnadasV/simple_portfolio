@@ -129,7 +129,7 @@ body ::-webkit-scrollbar-thumb {
 }
 
 .fade-in {
-  opacity: 0;
+  opacity: 5;
   transform: translateY(80px);
   transition: all 0.8s ease;
 }

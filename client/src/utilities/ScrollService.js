@@ -2,27 +2,24 @@ import { TOTAL_SCREENS } from "./CommonUtils";
 import { Subject } from "rxjs";
 
 export default class ScrollService {
-  static ScrollHandler = new ScrollService();
+  static scrollService = new ScrollService();
 
   static currentScreenBroadCaster = new Subject();
   static currentScreenFadeIn = new Subject();
 
   constructor() {
-    window.addEventListener("scroll", this.checkCurrentScreenUnderViewport);
+    window.addEventListener("scroll", this.checkCurrentScreenUnderViewPort);
   }
-
   scrollToHireMe = () => {
-    let ccontactMeScreen = document.getElementById("Contact Me");
-    if (!ccontactMeScreen) return;
-    ccontactMeScreen.scrollIntoView({ behavior: "smooth" });
+    let contactUsScreen = document.getElementById("Contact Us");
+    if (!contactUsScreen) return;
+    contactUsScreen.scrollIntoView({ behavior: "smooth" });
   };
-
   scrollToHome = () => {
     let homeScreen = document.getElementById("Home");
     if (!homeScreen) return;
     homeScreen.scrollIntoView({ behavior: "smooth" });
   };
-
   isElementInView = (elem, type) => {
     let rec = elem.getBoundingClientRect();
     let elementTop = rec.top;
@@ -53,19 +50,19 @@ export default class ScrollService {
       let fullyVisible = this.isElementInView(screenFromDOM, "complete");
       let partiallyVisible = this.isElementInView(screenFromDOM, "partial");
 
-      if(fullyVisible || partiallyVisible){
-        if(partiallyVisible && !screen.alreadyRendered){
-            ScrollService.currentScreenFadeIn.next({
-                fadeInScreen: screen.screen_name
-            });
-            screen['alreadyRendered'] = true;
-            break;
+      if (fullyVisible || partiallyVisible) {
+        if (partiallyVisible && !screen.alreadyRendered) {
+          ScrollService.currentScreenFadeIn.next({
+            fadeInScreen: screen.screen_name,
+          });
+          screen["alreadyRendered"] = true;
+          break;
         }
-        if(fullyVisible){
-            ScrollService.currentScreenBroadCaster.next({
-                screenInView: screen.screen_name
-            });
-            break;
+        if (fullyVisible) {
+          ScrollService.currentScreenBroadCaster.next({
+            screenInView: screen.screen_name,
+          });
+          break;
         }
       }
     }
